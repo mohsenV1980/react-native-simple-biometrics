@@ -79,9 +79,12 @@ public class SimpleBiometricsModule extends ReactContextBaseJavaModule {
                                 BiometricPrompt prompt = new BiometricPrompt((FragmentActivity) activity, mainExecutor, authenticationCallback);
 
                                 BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                                        .setAllowedAuthenticators(authenticators)
+                                        // .setAllowedAuthenticators(authenticators)
+                                        // .setDeviceCredentialAllowed(false)
                                         .setTitle(title)
                                         .setSubtitle(subtitle)
+                                        .setNegativeButtonText("PIN")
+                                        .setConfirmationRequired(false)
                                         .build();
 
                                 prompt.authenticate(promptInfo);
